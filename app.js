@@ -135,7 +135,7 @@ app.post("/login", (req, res) => {
 //     console.log("server start at port 3000");
 // })
 
-const port = 3000;
+const port = process.env.PORT || 80;
 
 const start = async () => {
     try {
