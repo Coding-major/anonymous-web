@@ -4,7 +4,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-const session = require("express-session")
+const session = require("cookie-session")
 const passport = require("passport")  
 const passportLocalMongoose = require("passport-local-mongoose"); 
 
@@ -19,6 +19,10 @@ app.use(bodyparser.urlencoded({
 }));
 
 app.use(session({
+    cookie: {
+        secure: true,
+        maxAge:60000
+    },
     secret: "my name is mustey",
     resave: false,
     saveUninitialized: false
